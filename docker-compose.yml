@@ -1,0 +1,67 @@
+services:
+  zookeeper:
+    image: docker.io/bitnami/zookeeper:3.9
+    container_name: zookeeper
+    restart: always
+    ports:
+      - "2181:2181"
+    volumes:
+      - "zookeeper_data:/bitnami"
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+  
+  kafka:
+    image: docker.io/bitnami/kafka
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    restart: always
+    volumes:
+      - "kafka_data:/bitnami"
+    environment:
+      - ALLOW_PLAINTEXT_LISTENER=yes
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092
+      - KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true
+    depends_on:
+      - zookeeper
+  
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+        - "27017:27017"
+    volumes:
+        - mongo_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    
+  postgres:
+    image: postgres:12
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "62619:62619"
+
+  pg-admin:
+    image: dpage/pgadmin4:6
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@email.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+      - PGADMIN_LISTEN_PORT=5050
+    ports:
+      - "5050:5050"
+    
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
+  mongo_data:
+
+
+networks:
+  mynetwork:

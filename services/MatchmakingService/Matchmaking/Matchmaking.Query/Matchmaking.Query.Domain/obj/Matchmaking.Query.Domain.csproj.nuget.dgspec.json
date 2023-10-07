@@ -1,0 +1,184 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Query/Matchmaking.Query.Domain/Matchmaking.Query.Domain.csproj": {}
+  },
+  "projects": {
+    "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/EventSourcing/CQRS.Core/CQRS.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/EventSourcing/CQRS.Core/CQRS.Core.csproj",
+        "projectName": "CQRS.Core",
+        "projectPath": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/EventSourcing/CQRS.Core/CQRS.Core.csproj",
+        "packagesPath": "/Users/ahmet/.nuget/packages/",
+        "outputPath": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/EventSourcing/CQRS.Core/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/ahmet/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.21.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/7.0.100/libexec/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Common/Matchmaking.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Common/Matchmaking.Common.csproj",
+        "projectName": "Matchmaking.Common",
+        "projectPath": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Common/Matchmaking.Common.csproj",
+        "packagesPath": "/Users/ahmet/.nuget/packages/",
+        "outputPath": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Common/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/ahmet/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/EventSourcing/CQRS.Core/CQRS.Core.csproj": {
+                "projectPath": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/EventSourcing/CQRS.Core/CQRS.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/7.0.100/libexec/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Query/Matchmaking.Query.Domain/Matchmaking.Query.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Query/Matchmaking.Query.Domain/Matchmaking.Query.Domain.csproj",
+        "projectName": "Matchmaking.Query.Domain",
+        "projectPath": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Query/Matchmaking.Query.Domain/Matchmaking.Query.Domain.csproj",
+        "packagesPath": "/Users/ahmet/.nuget/packages/",
+        "outputPath": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Query/Matchmaking.Query.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/ahmet/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/EventSourcing/CQRS.Core/CQRS.Core.csproj": {
+                "projectPath": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/EventSourcing/CQRS.Core/CQRS.Core.csproj"
+              },
+              "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Common/Matchmaking.Common.csproj": {
+                "projectPath": "/Users/ahmet/Desktop/matchmaking-CQRS-Kafka/services/MatchmakingService/Matchmaking/Matchmaking.Common/Matchmaking.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/7.0.100/libexec/sdk/7.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matchmaking.Query.Domain", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matchmaking.Query.Infrastructure", "Matchmaking.Query\Matchmaking.Query.Infrastructure\Matchmaking.Query.Infrastructure.csproj", "{8C6AA37F-BACD-4A6D-AA94-EC79EA9A19DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matchmaking.Common", "Matchmaking.Common\Matchmaking.Common.csproj", "{925E8B39-809D-4125-B889-8615B5F88C87}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{8C6AA37F-BACD-4A6D-AA94-EC79EA9A19DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C6AA37F-BACD-4A6D-AA94-EC79EA9A19DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C6AA37F-BACD-4A6D-AA94-EC79EA9A19DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{925E8B39-809D-4125-B889-8615B5F88C87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{925E8B39-809D-4125-B889-8615B5F88C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{925E8B39-809D-4125-B889-8615B5F88C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{925E8B39-809D-4125-B889-8615B5F88C87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{9236BD0F-134C-41DC-96F7-141198979D82} = {F950004A-6DF9-4DE9-80BE-50C92C259A98}

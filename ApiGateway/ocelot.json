@@ -21,7 +21,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5155
+          "Port": 5240
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/AddUser",

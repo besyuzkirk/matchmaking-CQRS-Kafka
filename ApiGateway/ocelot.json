@@ -9,10 +9,22 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 5036
+          "Port": 5155
         }
       ],
       "UpstreamPathTemplate": "/api/gateway/authentication",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/v1/AddUser",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5155
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/AddUser",
       "UpstreamHttpMethod": [ "Post" ]
     }
   ]

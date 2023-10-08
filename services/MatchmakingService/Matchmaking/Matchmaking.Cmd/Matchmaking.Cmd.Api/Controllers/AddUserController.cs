@@ -44,7 +44,7 @@ public class AddUserController : ControllerBase
         }
         catch (AggregateNotFoundException ex)
         {
-            _logger.Log(LogLevel.Warning, ex, "Could not retrieve aggregate, client passed an incorrect post ID targetting the aggregate!");
+            _logger.Log(LogLevel.Warning, ex, "Could not retrieve aggregate, client passed an incorrect match ID targetting the aggregate!");
             return BadRequest(new BaseResponse
             {
                 Message = ex.Message
@@ -52,7 +52,7 @@ public class AddUserController : ControllerBase
         }
         catch (Exception ex)
         {
-            const string SAFE_ERROR_MESSAGE = "Error while processing request to add a comment to a post!";
+            const string SAFE_ERROR_MESSAGE = "Error while processing request to add a user to a match!";
             _logger.Log(LogLevel.Error, ex, SAFE_ERROR_MESSAGE);
 
             return StatusCode(StatusCodes.Status500InternalServerError, new BaseResponse

@@ -33,7 +33,7 @@ public class ListMatchController : ControllerBase
         }
         catch (Exception ex)
         {
-            const string SAFE_ERROR_MESSAGE = "Error while processing request to retrieve all posts!";
+            const string SAFE_ERROR_MESSAGE = "Error while processing request to retrieve matches!";
             return ErrorResponse(ex, SAFE_ERROR_MESSAGE);
         }
     }
@@ -47,7 +47,7 @@ public class ListMatchController : ControllerBase
         return Ok(new MatchResponse
         {
             Matches = matches,
-            Message = $"Successfully returned {count} post{(count > 1 ? "s" : string.Empty)}!"
+            Message = $"Successfully returned {count} match{(count > 1 ? "s" : string.Empty)}!"
         });
     }
 

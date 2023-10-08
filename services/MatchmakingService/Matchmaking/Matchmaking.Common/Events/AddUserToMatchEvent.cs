@@ -9,4 +9,5 @@ public class AddUserToMatchEvent : BaseEvent
     }
 
     public string Username { get; set; }
+    public int Point { get; set; }
 }

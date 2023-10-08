@@ -15,14 +15,13 @@ public class CommandHandler : ICommandHandler
 
     public async Task HandleAsync(NewMatchCommand command)
     {
-        var aggregate = new MatchAggregate(command.Id, command.Status);
+        var aggregate = new MatchAggregate(command.Id, command.UsernameOne, command.UsernameTwo,command.UsernameThree,command.MatchPoint);
         await _eventSourcingHandler.SaveAsync(aggregate);
     }
 
     public async Task HandleAsync(AddUserToMatchCommand command)
     {
-        var aggregate = await _eventSourcingHandler.GetByIdAsync(command.Id);
-        aggregate.AddUserToMatch(command.Username);
+        var aggregate = new AddUserToMatchAggregate(command.Id, command.Username, command.Point);
         await _eventSourcingHandler.SaveAsync(aggregate);
     }
 }

@@ -8,8 +8,10 @@ public class MatchEntity
 {
     [Key] 
     public Guid MatchId { get; set; }
-    public string UsernameOne { get; set; }
-    public string UsernameTwo { get; set; }
-    public string UsernameThree { get; set; }
-    public string Status { get; set; }
+    public string? UsernameOne { get; set; }
+    public string? UsernameTwo { get; set; }
+    public string? UsernameThree { get; set; }
+    public int MatchPoint { get; set; }
+    public int Status { get; set; }
+    public DateTime MatchCreatedAt { get; set; }
 }

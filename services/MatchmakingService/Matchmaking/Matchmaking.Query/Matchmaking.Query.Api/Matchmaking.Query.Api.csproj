@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +17,12 @@
     <ProjectReference Include="..\..\Matchmaking.Common\Matchmaking.Common.csproj" />
     <ProjectReference Include="..\Matchmaking.Query.Infrastructure\Matchmaking.Query.Infrastructure.csproj" />
     <ProjectReference Include="..\Matchmaking.Query.Domain\Matchmaking.Query.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\.dockerignore">
+      <Link>.dockerignore</Link>
+    </Content>
   </ItemGroup>
 
 </Project>

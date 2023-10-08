@@ -28,6 +28,8 @@ public class EventStore : IEventStore
         return eventStream.OrderBy(x => x.Version).Select(x => x.EventData).ToList();
     }
 
+ 
+
     public async Task SaveEventsAsync(Guid aggregateId, IEnumerable<BaseEvent> events, int expectedVersion)
     {
         var eventStream = await _eventStoreRepository.FindByAggregateId(aggregateId);

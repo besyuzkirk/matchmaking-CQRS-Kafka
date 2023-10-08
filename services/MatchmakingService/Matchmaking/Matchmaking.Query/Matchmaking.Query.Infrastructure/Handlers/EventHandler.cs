@@ -22,7 +22,8 @@ public class EventHandler : IEventHandler
             Status = @event.Status,
             UsernameOne = @event.UsernameOne,
             UsernameTwo = @event.UsernameTwo,
-            UsernameThree = @event.UsernameThree
+            UsernameThree = @event.UsernameThree,
+            MatchPoint = @event.MatchPoint
         };
 
         await _matchRepository.CreateAsync(match);
@@ -30,11 +31,37 @@ public class EventHandler : IEventHandler
 
     public async Task On(AddUserToMatchEvent @event)
     {
-        var match = await _matchRepository.GetByIdAsync(@event.Id);
+        var firstMatch = new MatchEntity();
+        var matches = await _matchRepository.ListAllAsync(
+            p => p.Status < 3
+                 && p.MatchPoint > (@event.Point - 10)
+                 && p.MatchPoint < (@event.Point + 10),
+            true);
         
-        if(match == null) return;
-
-        match.UsernameOne = @event.Username;
-        await _matchRepository.UpdateAsync(match);
+        if(matches != null)
+            firstMatch = matches.MinBy(m => m.MatchCreatedAt);
+        
+        if (firstMatch == null)
+        {
+            await _matchRepository.CreateAsync(new MatchEntity
+            {
+                MatchCreatedAt = DateTime.UtcNow,
+                Status = 1,
+                UsernameOne = @event.Username,
+                MatchPoint = @event.Point
+            });
+        }
+        else
+        {
+            await _matchRepository.UpdateAsync(new MatchEntity
+            {
+                MatchId = firstMatch.MatchId,
+                MatchPoint = firstMatch.Status == 1 ? (@event.Point + firstMatch.MatchPoint) / 2 : (@event.Point + 2 * firstMatch.MatchPoint) / 3,
+                UsernameOne = firstMatch.UsernameOne,
+                UsernameTwo = firstMatch.Status == 1 ? @event.Username : firstMatch.UsernameTwo,
+                UsernameThree = firstMatch.Status == 2 ? @event.Username : firstMatch.UsernameTwo,
+                Status = firstMatch.Status + 1
+            });
+        }
     }
 }

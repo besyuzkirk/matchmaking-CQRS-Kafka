@@ -6,8 +6,10 @@ namespace Matchmaking.Cmd.Domain.Aggregates;
 public class MatchAggregate : AggregateRoot
 {
     private bool _active;
-    private string _status;
-    
+    private string _usernameOne;
+    private int _matchPoint;
+    private int _status;
+   
     public bool Active
     {
         get => _active;
@@ -20,13 +22,17 @@ public class MatchAggregate : AggregateRoot
     }
     
     
-    public MatchAggregate(Guid id, string status)
+    public MatchAggregate(Guid id, string usernameOne, string usernameTwo, string usernameThree ,int matchPoint)
     {
         RaiseEvent(new MatchCreatedEvent
         {
             Id = id,
-            Status = status,
+            Status = 3,
             MatchCreatedDate = DateTime.Now,
+            MatchPoint = matchPoint,
+            UsernameOne = usernameOne,
+            UsernameTwo = usernameTwo,
+            UsernameThree = usernameThree
         });
     }
 
@@ -34,31 +40,8 @@ public class MatchAggregate : AggregateRoot
     {
         _id = @event.Id;
         _active = true;
-        _status = @event.Status;
-    }
-
-    public void AddUserToMatch(string username)
-    {
-        if (!_active)
-        {
-            throw new InvalidOperationException("You cannot add the user of an inactive match!");
-        }
-
-        if (string.IsNullOrWhiteSpace(username))
-        {
-            throw new InvalidOperationException($"The value of {nameof(username)} cannot be null or empty. Please provide a valid {nameof(username)}!");
-        }
-
-        RaiseEvent(new AddUserToMatchEvent
-        {
-            Id = _id,
-            Username = username
-        });
-    }
-    
-    public void Apply(AddUserToMatchEvent @event)
-    {
-        _id = @event.Id;
-        _active = true;
+        _status = 1;
+        _matchPoint = @event.MatchPoint;
+        _usernameOne = @event.UsernameOne;
     }
 }

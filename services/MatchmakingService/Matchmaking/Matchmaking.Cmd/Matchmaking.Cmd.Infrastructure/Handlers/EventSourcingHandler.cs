@@ -27,6 +27,8 @@ public class EventSourcingHandler : IEventSourcingHandler<MatchAggregate>
         return aggregate;
     }
 
+   
+
     public async Task SaveAsync(AggregateRoot aggregate)
     {
         await _eventStore.SaveEventsAsync(aggregate.Id, aggregate.GetUncommittedChanges(), aggregate.Version);

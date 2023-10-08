@@ -1,9 +1,11 @@
+using System.Linq.Expressions;
 using Matchmaking.Query.Domain.Entities;
 using Matchmaking.Query.Domain.Repositories;
 using Matchmaking.Query.Infrastructure.DataAccess;
 using Microsoft.EntityFrameworkCore;
 
 namespace Matchmaking.Query.Infrastructure.Repositories;
+
 
 public class MatchRepository : IMatchRepository
     {
@@ -40,11 +42,23 @@ public class MatchRepository : IMatchRepository
                 .FirstOrDefaultAsync(x => x.MatchId == matchId);
         }
 
-        public async Task<List<MatchEntity>> ListAllAsync()
+        public async Task<List<MatchEntity>> ListAllAsync(Expression<Func<MatchEntity, bool>> predicate, bool noTracking = false)
         {
             using DatabaseContext context = _contextFactory.CreateDbContext();
-            return await context.Matches.AsNoTracking()
-                   .ToListAsync();
+
+            IQueryable<MatchEntity> query = context.Matches;
+
+            if (noTracking)
+            {
+                query = query.AsNoTracking();
+            }
+
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+
+            return await query.ToListAsync();
         }
 
 

@@ -32,6 +32,7 @@ public class NewMatchController : ControllerBase
 
             return StatusCode(StatusCodes.Status201Created, new NewMatchResponse
             {
+                Id = id,
                 Message = "New match creation request completed successfully"
             });
         }

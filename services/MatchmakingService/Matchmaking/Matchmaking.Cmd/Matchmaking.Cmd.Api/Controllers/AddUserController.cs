@@ -31,7 +31,7 @@ public class AddUserController : ControllerBase
 
             return StatusCode(StatusCodes.Status201Created, new BaseResponse
             {
-                Message = "New match creation request completed successfully"
+                Message = "User adding request completed successfully"
             });
         }
         catch (InvalidOperationException ex)

@@ -1,9 +1,13 @@
 using System.Text.RegularExpressions;
 using Confluent.Kafka;
 using CQRS.Core.Consumers;
+using CQRS.Core.Infrastructure;
+using Matchmaking.Query.Api.Queries;
+using Matchmaking.Query.Domain.Entities;
 using Matchmaking.Query.Domain.Repositories;
 using Matchmaking.Query.Infrastructure.Consumers;
 using Matchmaking.Query.Infrastructure.DataAccess;
+using Matchmaking.Query.Infrastructure.Dispatchers;
 using Matchmaking.Query.Infrastructure.Handlers;
 using Matchmaking.Query.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +33,11 @@ builder.Services.Configure<ConsumerConfig>(builder.Configuration.GetSection(name
 builder.Services.AddScoped<IEventConsumer , EventConsumer>();
 
 
+
+var queryHandler = builder.Services.BuildServiceProvider().GetRequiredService<IQueryHandler>();
+var dispatcher = new QueryDispatcher();
+dispatcher.RegisterHandler<FindMatchesByUsername>(queryHandler.HandleAsync);
+builder.Services.AddScoped<IQueryDispatcher<MatchEntity>>(_ => dispatcher);
 builder.Services.AddControllers();
 
 builder.Services.AddHostedService<ConsumerHostedService>();

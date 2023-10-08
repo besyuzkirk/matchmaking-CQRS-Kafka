@@ -10,8 +10,9 @@ public class User : MongoDbEntity
     public string Username { get; set; }
     public byte[] PasswordHash { get; set; }
     public byte[]  PasswordSalt { get; set; }
-    public int Level { get; set; }
     public long TotalGames { get; set; }
     public long WonGames { get; set; }
     public long LoseGames { get; set; }
+    public int Rank { get; set; }
+    public int Point { get; set; }
 }

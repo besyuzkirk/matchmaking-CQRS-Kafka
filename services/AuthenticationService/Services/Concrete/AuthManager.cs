@@ -29,6 +29,12 @@ public class AuthManager : IAuthService
     {
         if (string.IsNullOrEmpty(dto.Password) || string.IsNullOrEmpty(dto.Email) || string.IsNullOrEmpty(dto.Username))
             return new ErrorResult("Username, Email, and Password cannot be empty");
+
+        var userExist = await _userDal.GetAsync(p => p.Email == dto.Email || p.Username == dto.Username);
+        if (userExist != null)
+        {
+            return new ErrorResult("The user already exist");
+        }
         
         byte[] passwordHash, passwordSalt;
         HashingHelper.CreatePasswordHash(dto.Password, out passwordHash, out passwordSalt);
@@ -41,8 +47,6 @@ public class AuthManager : IAuthService
         };
 
         var addedUser = await _userDal.AddAsync(user);
-           
-        
         return new SuccessResult("User is added successfully");
     }
 
@@ -69,10 +73,8 @@ public class AuthManager : IAuthService
             Subject = new ClaimsIdentity(new Claim[]
             {
                 new Claim(ClaimTypes.Email, dto.Email),
-                new Claim("Level", user.Level.ToString()),
-                new Claim("TotalGames", user.TotalGames.ToString()),
-                new Claim("WonGames", user.WonGames.ToString()),
-                new Claim("LoseGames", user.LoseGames.ToString())
+                new Claim("Username", user.Username.ToString()),
+                new Claim("Point", user.Point.ToString()),
             }),
             
             Expires = DateTime.UtcNow.AddHours(1),

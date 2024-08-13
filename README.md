@@ -1,3 +1,6 @@
+A Matchmaking Server Demo, Mediator Pattern without MediatR
+
+
 <h1>Architecture Overview</h1>
 <img width="953" alt="Screenshot 2023-10-09 at 01 27 24" src="https://github.com/besyuzkirk/matchmaking-CQRS-Kafka/assets/75073489/0da45843-dc96-492d-b61e-5b4af32b637f">
 <h1>CQRS Overview</h1>
